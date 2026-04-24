@@ -1,0 +1,37 @@
+# Build
+bin/
+obj/
+*.exe
+*.dll
+
+# Visual Studio / VSCode
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# Rider
+.idea/
+*.sln.iml
+
+# MonoGame content build output
+Content/obj/
+Content/bin/
+*.mgcb.*.tmp
+
+# Packages / tooling
+*.nupkg
+.nuget/
+packages/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Git LFS candidate: large binary assets (replace with LFS if needed)
+# e.g., large textures, audio, videos, compiled assets
+# (Don't commit them directly if >100 MB)
