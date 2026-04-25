@@ -12,8 +12,6 @@ public class Player : Game1
 {
     public string Name;
     public int Health;
-    public float Luck;
-    public item_player[] Inventory;
     public bool Is_Alive;
     public float Speed;
     public Vector2 Pos_Player;
@@ -23,8 +21,6 @@ public class Player : Game1
     {
         Name = new_name;
         Health = 100;
-        Luck = 15f;
-        Inventory = new item_player[];
         Is_Alive = true;
         Pos_Player = new Vector2(700f, 250f);
         Speed = 1f;
