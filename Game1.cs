@@ -30,8 +30,8 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        player.Sprite = Content.Load<Texture2D>("Player");
 
-        // TODO: use this.Content to load your game content here
     }
 
     protected override void Update(GameTime gameTime)
@@ -49,9 +49,11 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
+        _spriteBatch.Begin();
 
-        // TODO: Add your drawing code here
-
+        _spriteBatch.Draw(player.Sprite, new Vector2(100, 100), Color.White);
+        
+        _spriteBatch.End();
         base.Draw(gameTime);
     }
 }
