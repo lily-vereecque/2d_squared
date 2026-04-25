@@ -9,26 +9,18 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace _2d_squared;
 
-public class Player_c : Game1
+public class Player_c(string new_name)
 {
-    public string Name;
-    public int Health;
-    public bool Is_Alive;
-    public float Speed;
-    public Vector2 Pos_Player;
+    public string Name = new_name;
+    public int Health = 100;
+    public bool Is_Alive = true;
+    public Vector2 Pos_Player = new Vector2(0f, 0f);
+    public float Speed = 32f;
+    public float MoveCooldown = 0f;
+    public KeyboardState state = Keyboard.GetState();
     public Texture2D Sprite;
     public Color Color_Player;
-    public KeyboardState state = Keyboard.GetState();
-    public float MoveCooldown;
-    public void Player(string new_name)
-    {
-        Name = new_name;
-        Health = 100;
-        Is_Alive = true;
-        Pos_Player = new Vector2(0f, 0f);
-        Speed = 32f;
-        MoveCooldown = 0f;
-    }
+
     public void Move_player(Player_c player, GameTime gameTime)
     {
         player.MoveCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -53,9 +45,11 @@ public class Player_c : Game1
         if (up) player.Pos_Player.Y -= player.Speed;
         if (down) player.Pos_Player.Y += player.Speed;
 
+        player.Pos_Player.X = Math.Clamp(player.Pos_Player.X, 0f, 960f - 32f);
+        player.Pos_Player.Y = Math.Clamp(player.Pos_Player.Y, 0f, 540f - 64f);
         if (left || right || up || down)
         {
-            player.MoveCooldown = (1f/60f * 5f);
+            player.MoveCooldown = (1f / 60f * 5f);
         }
     }
 

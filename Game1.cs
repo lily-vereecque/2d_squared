@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -8,6 +9,7 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Player_c player = new Player_c("Hero");
 
     public Game1()
     {
@@ -19,7 +21,9 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-
+        _graphics.PreferredBackBufferWidth = (int)(Math.Ceiling(30f * 32));
+        _graphics.PreferredBackBufferHeight = (int)(Math.Ceiling(30f * 32));
+        _graphics.ApplyChanges();
         base.Initialize();
     }
 
@@ -35,6 +39,8 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
+        player.state = Keyboard.GetState();
+        player.Move_player(player, gameTime);
         // TODO: Add your update logic here
 
         base.Update(gameTime);
