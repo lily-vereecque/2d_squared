@@ -11,7 +11,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 namespace _2d_squared{
 
     internal class pnj_c(string new_name)
-        {
+    {
         public string Name = new_name;
         public bool is_player_ask =  false;
         public Vector2 Pos_Pnj = new Vector2(0f, 0f);
@@ -23,7 +23,7 @@ namespace _2d_squared{
 
         public void is_asking(Player_c player)
         {
-            if (player.Pos_Player.X > Pos_Pnj.x + 5 || player.Pos_Player.X < Pos_Pnj.X - 5)
+            if (player.Pos_Player.X > Pos_Pnj.X + 5 || player.Pos_Player.X < Pos_Pnj.X - 5)
                 return;
 
             //The player is 1x2 tiles, and 0,0 is the top left.
@@ -47,12 +47,11 @@ namespace _2d_squared{
             if (is_player_ask == true)
             {
                 //while (arrivé au dernier message)
-                    if (Space_Keypad)
-                    {
+                if (Space_Keypad)
+                {
                     //change le message;
-                    }
                 }
             }
         }
     }
-} 
+}   
