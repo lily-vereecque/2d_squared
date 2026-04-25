@@ -21,12 +21,13 @@ namespace _2d_squared{
         public KeyboardState state = Keyboard.GetState();
         public Texture2D Sprite;
         public Color Color_Player;
+        public bool Can_Move = true;
 
         public void Move_player(Player_c player, GameTime gameTime)
         {
             player.MoveCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (player.MoveCooldown > 0f)
+            if (player.MoveCooldown > 0f && player.Can_Move == false)
                 return;
 
             //The player is 1x2 tiles, and 0,0 is the top left.
