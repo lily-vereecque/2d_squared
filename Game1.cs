@@ -49,10 +49,10 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        _spriteBatch.Begin();
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-        _spriteBatch.Draw(player.Sprite, new Vector2(100, 100), Color.White);
-        
+        _spriteBatch.Draw(player.Sprite, new Rectangle(100, 100, 32, 64), Color.White);
+
         _spriteBatch.End();
         base.Draw(gameTime);
     }
