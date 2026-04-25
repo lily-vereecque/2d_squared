@@ -32,6 +32,9 @@ Thumbs.db
 # Logs
 *.log
 
+#chache
+*.lscache
+
 # Git LFS candidate: large binary assets (replace with LFS if needed)
 # e.g., large textures, audio, videos, compiled assets
 # (Don't commit them directly if >100 MB)
