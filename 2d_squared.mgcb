@@ -163,6 +163,18 @@
 /processorParam:TextureFormat=Color
 /build:Content/d6.png
 
+#begin Content/dagobert_pnj.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Content/dagobert_pnj.png
+
 #begin Content/Dirt.png
 /importer:TextureImporter
 /processor:TextureProcessor

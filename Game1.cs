@@ -30,10 +30,10 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
-        _spriteBatch_pnj = new SpriteBatch(GraphicsDevice);
+        //_spriteBatch_pnj = new SpriteBatch(GraphicsDevice);
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         player.Sprite = Content.Load<Texture2D>("Player");
-        dagobert.Sprite_Pnj = Content.Load<Texture2D>("dagobert_pnj.png");
+        dagobert.Sprite_Pnj = Content.Load<Texture2D>("dagobert_pnj");
     }
 
     protected override void Update(GameTime gameTime)
@@ -54,6 +54,7 @@ public class Game1 : Game
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         _spriteBatch.Draw(player.Sprite, new Rectangle(100, 100, 32, 64), Color.White);
+        _spriteBatch.Draw(dagobert.Sprite_Pnj, new Rectangle(150, 100, 64, 64), Color.White);
 
         _spriteBatch.End();
         base.Draw(gameTime);
