@@ -9,8 +9,9 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private SpriteBatch _spriteBatch_pnj;
     private Player_c player = new Player_c("Hero");
-
+    private pnj_c dagobert = new pnj_c("dagobert");
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -29,9 +30,10 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
+        _spriteBatch_pnj = new SpriteBatch(GraphicsDevice);
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         player.Sprite = Content.Load<Texture2D>("Player");
-
+        dagobert.Sprite_Pnj = Content.Load<Texture2D>("dagobert_pnj.png");
     }
 
     protected override void Update(GameTime gameTime)
