@@ -9,7 +9,6 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private SpriteBatch _spriteBatch_pnj;
     private Player_c player = new Player_c("Hero");
     private pnj_c dagobert = new pnj_c("dagobert");
     public Game1()
@@ -43,7 +42,6 @@ public class Game1 : Game
 
         player.state = Keyboard.GetState();
         player.Move_player(player, gameTime);
-        // TODO: Add your update logic here
 
         base.Update(gameTime);
     }
