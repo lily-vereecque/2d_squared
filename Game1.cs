@@ -53,7 +53,7 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-        _spriteBatch.Draw(player.Sprite, new Rectangle(100, 100, 32, 64), Color.White);
+        _spriteBatch.Draw(player.Sprite, new Rectangle((int)player.Pos_Player.X, (int)player.Pos_Player.Y, 32, 64), Color.White);
         _spriteBatch.Draw(dagobert.Sprite_Pnj, new Rectangle(150, 100, 64, 64), Color.White);
 
         _spriteBatch.End();
