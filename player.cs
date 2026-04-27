@@ -27,7 +27,7 @@ namespace _2d_squared{
         {
             player.MoveCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (player.MoveCooldown > 0f && player.Can_Move == false)
+            if (player.MoveCooldown > 0f || !player.Can_Move)
                 return;
 
             //The player is 1x2 tiles, and 0,0 is the top left.
@@ -42,17 +42,18 @@ namespace _2d_squared{
             bool down = player.state.IsKeyDown(Keys.Down)
                 && !player.Collision(player.Pos_Player.X, player.Pos_Player.Y - player.Speed - 64f);
 
+            if (left || right || up || down)
+            {
+                player.MoveCooldown = (1f / 60f * 12f);
+            }
+
             if (left) player.Pos_Player.X -= player.Speed;
             if (right) player.Pos_Player.X += player.Speed;
             if (up) player.Pos_Player.Y -= player.Speed;
             if (down) player.Pos_Player.Y += player.Speed;
 
             player.Pos_Player.X = Math.Clamp(player.Pos_Player.X, 0f, 960f - 32f);
-            player.Pos_Player.Y = Math.Clamp(player.Pos_Player.Y, 0f, 540f - 64f);
-            if (left || right || up || down)
-            {
-                player.MoveCooldown = (1f / 60f * 5f);
-            }
+            player.Pos_Player.Y = Math.Clamp(player.Pos_Player.Y, 0f, 960f - 64f);
         }
 
         public bool Collision(float x, float y)

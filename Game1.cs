@@ -33,6 +33,7 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         player.Sprite = Content.Load<Texture2D>("Player");
         dagobert.Sprite_Pnj = Content.Load<Texture2D>("dagobert_pnj");
+        Content.Load<Texture2D>("d6");
     }
 
     protected override void Update(GameTime gameTime)
@@ -51,8 +52,10 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
+        _spriteBatch.Draw(dagobert.Sprite_Pnj, new Rectangle(192, 128, 64, 64), Color.White);
+        _spriteBatch.Draw(Content.Load<Texture2D>("d6"), new Rectangle(960-128, 0, 128, 128), Color.White);
+        _spriteBatch.Draw(Content.Load<Texture2D>("d6"), new Rectangle(960-128, 128, 128, 128), Color.Red);
         _spriteBatch.Draw(player.Sprite, new Rectangle((int)player.Pos_Player.X, (int)player.Pos_Player.Y, 32, 64), Color.White);
-        _spriteBatch.Draw(dagobert.Sprite_Pnj, new Rectangle(150, 100, 64, 64), Color.White);
 
         _spriteBatch.End();
         base.Draw(gameTime);

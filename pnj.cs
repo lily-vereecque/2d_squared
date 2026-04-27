@@ -23,7 +23,7 @@ namespace _2d_squared{
 
         public void is_asking(Player_c player)
         {
-            if (player.Pos_Player.X > Pos_Pnj.X + 5 || player.Pos_Player.X < Pos_Pnj.X - 5)
+            if (Math.Abs(player.Pos_Player.X - Pos_Pnj.X) > 64 || Math.Abs(player.Pos_Player.Y - Pos_Pnj.Y) > 64)
                 return;
 
             //The player is 1x2 tiles, and 0,0 is the top left.
