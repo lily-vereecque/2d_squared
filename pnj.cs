@@ -23,33 +23,34 @@ namespace _2d_squared{
 
         public void is_asking(Player_c player)
         {
-            if (Math.Abs(player.Pos_Player.X - Pos_Pnj.X) > 64 || Math.Abs(player.Pos_Player.Y - Pos_Pnj.Y) > 64)
+            if (Math.Abs(player.Pos_Player.X - Pos_Pnj.X) > 128 && Math.Abs(player.Pos_Player.Y - Pos_Pnj.Y) > 128)
                 return;
 
-            //The player is 1x2 tiles, and 0,0 is the top left.
-
             bool E_keypad_down = player.state.IsKeyDown(Keys.E);
-            bool E_keypad_Up = player.state.IsKeyUp(Keys.E);
 
             if (E_keypad_down)
             {
-                if (E_keypad_Up)
-                {
-                    player.Can_Move = false;
-                    is_player_ask = true;
-                }
+                player.Can_Move = false;
+                is_player_ask = true;
             }
         }
         public void speak(Player_c player)
         {
             bool Space_Keypad = player.state.IsKeyDown(Keys.Space);
 
-            if (is_player_ask == true)
+            if (is_player_ask)
             {
-                //while (arrivé au dernier message)
                 if (Space_Keypad)
                 {
-                    //change le message;
+                    Console.WriteLine("Hello, Adventurer!");
+                    Console.WriteLine("I am Dagobert, the greatest king of all.");
+                    Console.WriteLine("I have a quest for you, if you want to accept it.");
+                    Console.WriteLine("Well, I had one... Another adventurer took it");
+                    Console.WriteLine("I guess you're useless...");
+                    Console.WriteLine("Oh well, might as well let you die.");
+                    Console.WriteLine("GUARDS!")
+                    is_player_ask = false;
+                    player.Can_Move = true;   
                 }
             }
         }

@@ -45,7 +45,8 @@ public class Game1 : Game
 
         player.state = Keyboard.GetState();
         player.Move_player(player, gameTime);
-
+        dagobert.is_asking(player);
+        dagobert.speak(player);
         base.Update(gameTime);
     }
 
