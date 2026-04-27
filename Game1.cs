@@ -11,6 +11,8 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private Player_c player = new Player_c("Hero");
     private pnj_c dagobert = new pnj_c("dagobert");
+
+    private bool evil_d6 = Random.Shared.NextDouble() < 0.01;
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -49,13 +51,20 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.Gray);
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
+        for (int i = 0; i < 30; i++)
+        {
+            for (int j = 0; j < 30; j++)
+            {
+                _spriteBatch.Draw(Content.Load<Texture2D>("Brick"), new Rectangle(i * 32, j * 32, 32, 32), Color.White);
+            }
+        }
         _spriteBatch.Draw(dagobert.Sprite_Pnj, new Rectangle(192, 128, 64, 64), Color.White);
-        _spriteBatch.Draw(Content.Load<Texture2D>("d6"), new Rectangle(960-128, 0, 128, 128), Color.White);
-        _spriteBatch.Draw(Content.Load<Texture2D>("d6"), new Rectangle(960-128, 128, 128, 128), Color.Red);
         _spriteBatch.Draw(player.Sprite, new Rectangle((int)player.Pos_Player.X, (int)player.Pos_Player.Y, 32, 64), Color.White);
+        _spriteBatch.Draw(Content.Load<Texture2D>("d6"), new Rectangle(960-128, 0, 128, 128), (evil_d6) ? Color.Red : Color.White);
+        _spriteBatch.Draw(Content.Load<Texture2D>("d6"), new Rectangle(960 - 128, 128, 128, 128), Color.Red);
 
         _spriteBatch.End();
         base.Draw(gameTime);

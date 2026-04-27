@@ -44,7 +44,7 @@ namespace _2d_squared{
 
             if (left || right || up || down)
             {
-                player.MoveCooldown = (1f / 60f * 12f);
+                player.MoveCooldown = (1f / 60f * 7f);
             }
 
             if (left) player.Pos_Player.X -= player.Speed;
